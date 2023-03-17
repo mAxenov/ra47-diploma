@@ -1,6 +1,8 @@
 import React from 'react'
 
-function Categories({ options, value, onClick }) {
+function Categories({ options, value, onClick, isError }) {
+    if (isError) return <h3 style={{ width: '100%', textAlign: 'center', color: 'red' }}>{isError}</h3>
+
     return (
         <ul className="catalog-categories nav justify-content-center">
             {options.map((option) => {

@@ -65,6 +65,7 @@ function CatalogItems({ inputValue }) {
                 options={categories}
                 value={selectedCategory}
                 onClick={handlerSetCategory}
+                isError={itemsCategoriesError}
             />
             {items.length > 0
                 ?
@@ -79,12 +80,17 @@ function CatalogItems({ inputValue }) {
                     {isDownloadMoreLoading && <Loader />}
 
                     <div className="text-center">
-                        <button
-                            hidden={isHideMore || isItemsLoading || isDownloadMoreLoading || isItemsCategories || items.length < 5}
-                            onClick={handlerDownloadMore}
-                            className="btn btn-outline-primary">
-                            Загрузить ещё
-                        </button>
+                        {downloadMoreError ?
+                            <h3 style={{ width: '100%', textAlign: 'center', color: 'red' }}>{downloadMoreError}</h3>
+                            :
+                            <button
+                                hidden={isHideMore || isItemsLoading || isDownloadMoreLoading || isItemsCategories || items.length < 5}
+                                onClick={handlerDownloadMore}
+                                className="btn btn-outline-primary">
+                                Загрузить ещё
+                            </button>
+                        }
+
                     </div>
                 </>
                 :

@@ -1,14 +1,16 @@
 import React from 'react'
+import EmptyProduct from '../components/UI/EmptyProduct/EmptyProduct'
 
 function Error404() {
     return (
-        <section className="top-sales">
-            <h2 className="text-center">Страница не найдена</h2>
-            <p>
-                Извините, такая страница не найдена!
-            </p>
-        </section>
+        <EmptyProduct
+            title={'Тут ничего нет'}
+            subTitle={'Попробуйте вернуться назад или поищите что-нибудь другое.'}
+        >
+            <div>Код ошибки: 404</div>
+        </EmptyProduct>
     );
 }
+
 
 export default Error404;
