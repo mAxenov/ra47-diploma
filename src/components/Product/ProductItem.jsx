@@ -5,8 +5,8 @@ function ProductItem({ item, className }) {
     return (
         <div key={item.id} className="col-4 ">
             <div className={className ? "card align-self-stretch " + className : "card align-self-stretch"}>
-                <img src={item.images && item.images[0]}
-                    className="card-img-top img-fluid" alt={item.title} />
+                <div className="test"><img style={{ objectFit: "cover" }} src={item.images && item.images[0]}
+                    className="card-img-top img-fluid" alt={item.title} /></div>
                 <div className="card-body">
                     <p className="card-text">{item.title}</p>
                     <p className="card-text">{priceFormatter(item.price) + " руб."} </p>
